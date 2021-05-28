@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: kube-helloworld-app
+  name: deploy-helloworld-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kube-helloworld-app
+  template:
+    metadata:
+      labels:
+        app: kube-helloworld-app
+    spec:
+      containers:
+      - name: pod-helloworld-app
+        image: ghcr.io/florianvazelle/kube-nodejs-helloworld:latest
+        ports:
+        - containerPort: 8080
+          name: http
+        env:
+        - name: NAME
+          valueFrom:
+            configMapKeyRef:
+              name: env-config-helloworld-app
+              key: name

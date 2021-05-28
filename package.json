@@ -1,0 +1,14 @@
+{
+  "name": "kube-nodejs-helloworld",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Node.js Hello World app using docker",
+  "author": "Florian Vazelle <ponythugflorian@gmail.com>",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node ./server/index.js"
+  },
+  "dependencies": {
+    "express": "^4.16.1"
+  }
+}
